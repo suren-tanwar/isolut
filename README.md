@@ -1,25 +1,22 @@
 # isolut
 
 
-### Deploying Ghost CMS on Google Cloud Platform
+### Deploying The Ghost Application on Google Cloud Platform
 
 #### Step 1: Set Up Google Cloud Platform (GCP) Project
 
-1. Create a new project on Google Cloud Console if you don't have one.
-2. Enable billing for your project.
-3. Enable the Compute Engine API for your project.
+1. Create a new project on Google Cloud Console.
 
 #### Step 2: Create and Configure Compute Engine Instance
 
-1. Navigate to Compute Engine in the Google Cloud Console.
-2. Click "Create Instance" and configure machine type, boot disk, and networking.
-3. Allow HTTP and HTTPS traffic.
-4. Select "Ubuntu" as the operating system.
-5. Click "Create" to create the instance.
+1."Create Instance" and configure machine .
+2. Allow HTTP and HTTPS traffic.
+3. Select "Ubuntu" as the operating system.
+4. Click "Create" to create the instance.
 
 #### Step 3: Connect to Your Instance
 
-1. Click on the SSH button in the console to open a terminal window.
+1. Click on the SSH button in the console.
 2. Update the system packages:
 
    ```bash
@@ -58,12 +55,12 @@ sudo ghost install
    sudo nano /etc/nginx/sites-available/ghost
    ```
 
-2. Paste the Nginx configuration, replacing `your_domain`:
+2. In  the Nginx configuration:
 
    ```nginx
    server {
        listen 80;
-       server_name your_domain;
+       server_name example.com;
      # IP Whitelisting
        allow 1.2.3.4;  # Add your whitelisted IP address
        deny all;
@@ -114,23 +111,18 @@ sudo ghost install
 
 # Step 9: Configure Ghost Database
 
-# 9.1: Install MySQL Server:
+1. Install MySQL Server:
 sudo apt install mysql-server
 
-# 9.2: Secure your MySQL installation:
+2. Secure your MySQL installation:
 sudo mysql_secure_installation
 
-# Follow the prompts to set a root password and secure your MySQL installation.
-
-# 9.3: Create a MySQL database and user for Ghost:
+4. Create a MySQL database and user for Ghost:
 sudo mysql
 
-# 9.4: Update Ghost configuration to use the MySQL database:
+5. Update Ghost configuration to use the MySQL database:
 sudo nano /var/www/ghost/config.production.json
 
-# Find the 'database' section and update it with your MySQL connection details.
-
-
-# Restart Ghost:
+6. Restart Ghost:
 sudo systemctl restart ghost
 
