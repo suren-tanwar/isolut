@@ -64,7 +64,9 @@ sudo ghost install
    server {
        listen 80;
        server_name your_domain;
-
+     # IP Whitelisting
+       allow 1.2.3.4;  # Add your whitelisted IP address
+       deny all;
        location / {
            proxy_pass http://127.0.0.1:2368;
            proxy_set_header Host $host;
