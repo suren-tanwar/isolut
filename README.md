@@ -112,5 +112,25 @@ sudo ghost install
    ```
 
 
+# Step 9: Configure Ghost Database
 
+# 9.1: Install MySQL Server:
+sudo apt install mysql-server
+
+# 9.2: Secure your MySQL installation:
+sudo mysql_secure_installation
+
+# Follow the prompts to set a root password and secure your MySQL installation.
+
+# 9.3: Create a MySQL database and user for Ghost:
+sudo mysql
+
+# 9.4: Update Ghost configuration to use the MySQL database:
+sudo nano /var/www/ghost/config.production.json
+
+# Find the 'database' section and update it with your MySQL connection details.
+
+
+# Restart Ghost:
+sudo systemctl restart ghost
 
