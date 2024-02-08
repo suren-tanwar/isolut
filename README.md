@@ -105,47 +105,12 @@ sudo ghost install
    sudo nano /var/www/ghost/config.production.json
    ```
 
-3. Update the storage section:
-
-   ```json
-   "storage": {
-       "active": "gcs",
-       "gcs": {
-           "projectId": "your-project-id",
-           "keyFilename": "/path/to/your/keyfile.json",
-           "bucket": "your-bucket-name"
-       }
-   }
-   ```
-
-4. Restart Ghost:
+3. Restart Ghost:
 
    ```bash
    sudo systemctl restart ghost
    ```
 
-#### Step 9: Set Up HTTPS with Let's Encrypt
 
-```bash
-sudo apt install certbot
-sudo certbot --nginx -d your_domain
-```
 
-#### Step 10: Implement Load Balancing
-
-1. Set up an HTTP(S) Load Balancer in the Google Cloud Console.
-2. Configure backend and frontend services for HTTPS traffic.
-
-#### Step 11: Allow Only Whitelisted IP Addresses
-
-1. Update Nginx configuration to allow specific IP addresses:
-
-   ```nginx
-   server {
-       ...
-       allow 1.2.3.4;  # Add your whitelisted IP address
-       deny all;
-       ...
-   }
-   ```
 
